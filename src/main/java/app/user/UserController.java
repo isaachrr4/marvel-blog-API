@@ -24,5 +24,10 @@ public class UserController {
         this.userService = userService;
     }
 
+    @GetMapping(produces = "application/json")
+    public List<UserResponse> getAllUsers() {
+        return userService.fetchAllUsers();
+    }
+
 
 }
