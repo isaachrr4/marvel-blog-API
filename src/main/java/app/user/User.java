@@ -1,5 +1,7 @@
 package app.user;
 
+import io.micrometer.core.instrument.Tags;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
@@ -115,5 +117,9 @@ public class User implements Comparable<User>{
         } else {
             return -1;
         }
+    }
+
+    public Tags getFavoriteComics() {
+        return null;
     }
 }
