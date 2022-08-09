@@ -1,10 +1,10 @@
 package app.user;
 
+import app.Comic.Comic;
 import io.micrometer.core.instrument.Tags;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -27,15 +27,23 @@ public class User implements Comparable<User>{
     @Column(name = "roleid", nullable = false)
     private Integer roleId;
 
+    @OneToMany(mappedBy = "user")
+    @JoinTable(
+            name = "userfavoritecards",
+            joinColumns = @JoinColumn(name = "userid"),
+            inverseJoinColumns = @JoinColumn(name = "cardid"))
+    private List<Comic> favoriteComics = new java.util.ArrayList<>();
 
 
 
-    public User(Integer userId, String email, String username, String password, Integer roleId) {
+
+    public User(Integer userId, String email, String username, String password, Integer roleId, List<Comic> favoriteComics) {
         this.userId = userId;
         this.email = email;
         this.username = username;
         this.password = password;
         this.roleId = roleId;
+        this.favoriteComics =favoriteComics;
 
     }
 
@@ -101,6 +109,10 @@ public class User implements Comparable<User>{
 
     public Integer getRoleId() {
         return roleId;
+    }
+
+    public void setFavoriteComics(List<Comic> favoriteComics) {
+        this.favoriteComics = favoriteComics;
     }
 
     public void setRoleId(Integer roleId) {

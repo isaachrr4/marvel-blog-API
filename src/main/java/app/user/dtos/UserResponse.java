@@ -5,8 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
-import java.util.stream.Collectors;
-
+import app.Comic.Comic;
 
 @Data
 @NoArgsConstructor
@@ -29,7 +28,6 @@ public class UserResponse {
         this.username = user.getUsername();
         this.password = user.getPassword();
         this.role = user.getRoleId();
-        //this.favoriteComicsId = user.getFavoriteComics().stream().map(Comic: getComicid;
-        //getComicid).collect(Collectors.toList());
+
     }
 }
