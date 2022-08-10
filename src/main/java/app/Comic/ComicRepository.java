@@ -1,4 +1,4 @@
-package app.helpers.datasource.Comic;
+package app.Comic;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

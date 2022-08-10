@@ -1,6 +1,6 @@
-package app.helpers.datasource.Comic.dtos;
+package app.Comic.dtos;
 
-import app.helpers.datasource.Comic.Comic;
+import app.Comic.Comic;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

@@ -1,6 +1,6 @@
-package app.helpers.datasource.Comic;
+package app.Comic;
 
-import app.helpers.datasource.Comic.dtos.ComicResponse;
+import app.Comic.dtos.ComicResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
