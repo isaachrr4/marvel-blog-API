@@ -5,12 +5,29 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
-import java.util.stream.Collectors;
-
+import app.Comic.Comic;
 
 @Data
 @NoArgsConstructor
 public class UserResponse {
 
 
+    private Integer userId;
+    private String email;
+    private String username;
+
+    private String password;
+    private Integer role;
+
+    private List<String> favoriteComicsId;
+
+
+    public UserResponse(User user) {
+        this.userId = user.getUserId();
+        this.email = user.getEmail();
+        this.username = user.getUsername();
+        this.password = user.getPassword();
+        this.role = user.getRoleId();
+
+    }
 }
