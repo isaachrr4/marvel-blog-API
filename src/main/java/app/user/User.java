@@ -1,6 +1,6 @@
 package app.user;
 
-import app.Comic.Comic;
+import app.helpers.datasource.Comic.Comic;
 import io.micrometer.core.instrument.Tags;
 
 import javax.persistence.*;

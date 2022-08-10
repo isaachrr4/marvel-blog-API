@@ -1,4 +1,4 @@
-package app.Comic;
+package app.helpers.datasource.Comic;
 
 import app.user.User;
 
