@@ -8,19 +8,23 @@ import javax.persistence.*;
 @Table(name = "comic")
 public class Comic {
     @Id
-    @Column(name = "id", nullable = false)
-    private Long id;
+    @Column(name = "comicid", nullable = false)
+    private String comicid;
 
     @ManyToOne
     @JoinColumn(name = "user_userid")
     private User user;
 
-    public Long getId() {
-        return id;
+
+    @Column(name = "comicurl", nullable = false)
+    private String comicurl;
+
+    public String getComicid() {
+        return comicid;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setComicid(String comicid) {
+        this.comicid = comicid;
     }
 
     public User getUser() {
@@ -30,4 +34,23 @@ public class Comic {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public String getComicurl() {
+        return comicurl;
+    }
+
+    public void setComicurl(String comicurl) {
+        this.comicurl = comicurl;
+    }
+
+    @Override
+    public String toString() {
+        return "Comic{" +
+                "comicid='" + comicid + '\'' +
+                ", user=" + user +
+                ", comicurl='" + comicurl + '\'' +
+                '}';
+    }
+
+
 }

@@ -29,9 +29,9 @@ public class User implements Comparable<User>{
 
     @OneToMany(mappedBy = "user")
     @JoinTable(
-            name = "userfavoritecards",
+            name = "userfavoritecomics",
             joinColumns = @JoinColumn(name = "userid"),
-            inverseJoinColumns = @JoinColumn(name = "cardid"))
+            inverseJoinColumns = @JoinColumn(name = "comicid"))
     private List<Comic> favoriteComics = new java.util.ArrayList<>();
 
 
