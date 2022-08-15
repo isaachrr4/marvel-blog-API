@@ -7,8 +7,8 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "users")
-public class User implements Comparable<User>{
+@Table(name = "user")
+public class User implements Comparable<User> {
 
     @Id
     @Column(name = "userid", unique = true)
@@ -29,12 +29,10 @@ public class User implements Comparable<User>{
 
     @OneToMany(mappedBy = "user")
     @JoinTable(
-            name = "userfavoritecomics",
+            name = "UserFavoriteComics",
             joinColumns = @JoinColumn(name = "userid"),
             inverseJoinColumns = @JoinColumn(name = "comicid"))
-    private List<Comic> favoriteComics = new java.util.ArrayList<>();
-
-
+    private List<Comic> favoriteComics;
 
 
     public User(Integer userId, String email, String username, String password, Integer roleId, List<Comic> favoriteComics) {
@@ -43,7 +41,7 @@ public class User implements Comparable<User>{
         this.username = username;
         this.password = password;
         this.roleId = roleId;
-        this.favoriteComics =favoriteComics;
+        this.favoriteComics = favoriteComics;
 
     }
 
@@ -71,6 +69,7 @@ public class User implements Comparable<User>{
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", roleId=" + roleId +
+                ", favoriteComics=" + favoriteComics +
 
                 '}';
     }
@@ -111,6 +110,10 @@ public class User implements Comparable<User>{
         return roleId;
     }
 
+    public List<Comic> getFavoriteComicsId() {
+        return favoriteComics;
+    }
+
     public void setFavoriteComics(List<Comic> favoriteComics) {
         this.favoriteComics = favoriteComics;
     }
@@ -118,7 +121,6 @@ public class User implements Comparable<User>{
     public void setRoleId(Integer roleId) {
         this.roleId = roleId;
     }
-
 
 
     @Override
@@ -131,7 +133,4 @@ public class User implements Comparable<User>{
         }
     }
 
-    public Tags getFavoriteComics() {
-        return null;
-    }
 }
